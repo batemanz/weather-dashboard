@@ -2,7 +2,11 @@ var APIkey = "99ca7d01c20c5e2c240491c1543dd7ca";
 var cityInputEl = document.querySelector("#cityInput");
 var city = document.querySelector("#city");
 var date = document.querySelector("#date");
-var dateCard = document.querySelector(".date");
+var dateCard1 = document.querySelector("#dateCard1");
+var dateCard2 = document.querySelector("#dateCard2");
+var dateCard3 = document.querySelector("#dateCard3");
+var dateCard4 = document.querySelector("#dateCard4");
+var dateCard5 = document.querySelector("#dateCard5");
 var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var humidity = document.querySelector("#humidity");
@@ -10,6 +14,18 @@ var UVindexEl = document.querySelector("#UVindex");
 var tempCardEl = document.querySelector("#tempCard");
 var windCardEl = document.querySelector("#windCard");
 var humidity1El = document.querySelector("#humidity1");
+var tempCardEl2 = document.querySelector("#tempCard2");
+var windCardEl2 = document.querySelector("#windCard2");
+var humidity1El2 = document.querySelector("#humidity2");
+var tempCardEl3 = document.querySelector("#tempCard3");
+var windCardEl3 = document.querySelector("#windCard3");
+var humidity1El3 = document.querySelector("#humidity3");
+var tempCardEl4 = document.querySelector("#tempCard4");
+var windCardEl4 = document.querySelector("#windCard4");
+var humidity1El4 = document.querySelector("#humidity4");
+var tempCardEl5 = document.querySelector("#tempCard5");
+var windCardEl5 = document.querySelector("#windCard5");
+var humidity1El5 = document.querySelector("#humidity5");
 var mainWeather = document.querySelector("#weatherMain")
 var weatherFavicon = document.querySelector(".weatherFavicon");
 var favEl = document.querySelector("#fav");
@@ -61,27 +77,33 @@ function getWeatherAPI(apiLat, apiLon) {
     } else {
         UVindexEl.style.backgroundColor = "#B567A4"; 
     };  
-   // set the forecat weathere here 
+   // the forecat weather here 
+   var dateCardEl = data1.daily[0].dt
+    dateCard1.textContent = dateCardEl
 
-    tempCardEl.textContent = data1.daily[0].temp.max + "\xB0 High " + data1.daily[0].temp.min + "\xB0 Low";
-    windCardEl.textContent = data1.daily[0].wind_speed + " Mph";
-    humidity1El.textContent = data1.daily[0].humidity + "%";
+    const milli = dateEl * 1000;// 1575909015000
+    const dateObj = new Date(milli);
+    dateCard1.textContent = dateObj.toLocaleString("en-US", {weekday: "long"});
 
-    tempCardEl2.textContent = data1.daily[0].temp.max + "\xB0 High " + data1.daily[0].temp.min + "\xB0 Low";
-    windCardEl2.textContent = data1.daily[0].wind_speed + " Mph";
-    humidity1El2.textContent = data1.daily[0].humidity + "%";
+    tempCardEl.textContent = data1.daily[1].temp.max + "\xB0 High " + data1.daily[1].temp.min + "\xB0 Low";
+    windCardEl.textContent = data1.daily[1].wind_speed + " Mph";
+    humidity1El.textContent = data1.daily[1].humidity + "%";
 
-    tempCardEl3.textContent = data1.daily[0].temp.max + "\xB0 High " + data1.daily[0].temp.min + "\xB0 Low";
-    windCardEl3.textContent = data1.daily[0].wind_speed + " Mph";
-    humidity1El3.textContent = data1.daily[0].humidity + "%";
+    tempCardEl2.textContent = data1.daily[2].temp.max + "\xB0 High " + data1.daily[2].temp.min + "\xB0 Low";
+    windCardEl2.textContent = data1.daily[2].wind_speed + " Mph";
+    humidity1El2.textContent = data1.daily[2].humidity + "%";
 
-    tempCardEl4.textContent = data1.daily[0].temp.max + "\xB0 High " + data1.daily[0].temp.min + "\xB0 Low";
-    windCardEl4.textContent = data1.daily[0].wind_speed + " Mph";
-    humidity1El4.textContent = data1.daily[0].humidity + "%";
+    tempCardEl3.textContent = data1.daily[3].temp.max + "\xB0 High " + data1.daily[3].temp.min + "\xB0 Low";
+    windCardEl3.textContent = data1.daily[3].wind_speed + " Mph";
+    humidity1El3.textContent = data1.daily[3].humidity + "%";
 
-    tempCardEl5.textContent = data1.daily[0].temp.max + "\xB0 High " + data1.daily[0].temp.min + "\xB0 Low";
-    windCardEl5.textContent = data1.daily[0].wind_speed + " Mph";
-    humidity1El5.textContent = data1.daily[0].humidity + "%";
+    tempCardEl4.textContent = data1.daily[4].temp.max + "\xB0 High " + data1.daily[4].temp.min + "\xB0 Low";
+    windCardEl4.textContent = data1.daily[4].wind_speed + " Mph";
+    humidity1El4.textContent = data1.daily[4].humidity + "%";
+
+    tempCardEl5.textContent = data1.daily[5].temp.max + "\xB0 High " + data1.daily[5].temp.min + "\xB0 Low";
+    windCardEl5.textContent = data1.daily[5].wind_speed + " Mph";
+    humidity1El5.textContent = data1.daily[5].humidity + "%";
 
 
 //    // save it to local storage  
