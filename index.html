@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header class="row">
+        <div class="col-12">
+            <h1>Weather Dashboard</h1>
+        </div>    
+    </header>
+    <main>
+        <div class="row">
+            <form class="col-2 m-1 p-0">
+                <label for="city"><h2>Search for a City:</h2></label>
+                <input class="col-12" type="text" id="cityInput" name="city">
+                <button class="col-12 search" type="submit">Search<i class="fas fa-search"></i>
+                </button>
+            </form>
+
+            <div class="col m-1 currentDash">
+                <h2 id="city"></h2>
+                <h2 id="date"></h2>
+                <p>weather condition: <span id="weatherMain"></span></p>
+                <p>icon: <span id="fav"></span></p>
+                <p>Temp: <span id="temp"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>UV index: <span id="UVindex"></span></p>
+            </div>
+      
+          
+        </div> 
+        <div class="row">
+        
+            <div class="col-2 m-1 p-0 searchHistory">
+                <button class="col-12">This is a button</button>
+                <button class="col-12">This is a button</button>
+                <button class="col-12">This is a button</button>
+                <button class="col-12">This is a button</button>
+                <button class="col-12">This is a button</button>
+                <button class="col-12">This is a button</button>
+            </div>
+
+            <!-- <h3>5-Day Forecast</h3> -->
+
+            <div class="col m-1 card">
+                <h4></h4>
+                <i ></i>
+                <p>Temp: <span id="tempCard"></span></p>
+                <p>Wind: <span id="windCard"></span></p>
+                <p>Humidity: <span id="humidity1"></span></p>    
+            </div>
+            <div class="col m-1 card">
+                <h4 class="date"></h4>
+                <i class="weatherFavicon"></i>
+                <p class="temp">Temp:</p>
+                <p class="wind">Wind:</p>
+                <p class="humidity">Humidity:</p>   
+            </div>
+            <div class="col m-1 card">
+                <h4 class="date"></h4>
+                <i class="weatherFavicon"></i>
+                <p class="temp">Temp:</p>
+                <p class="wind">Wind:</p>
+                <p class="humidity">Humidity:</p>   
+            </div>
+            <div class="col m-1 card">
+                <h4 class="date"></h4>
+                <i class="weatherFavicon"></i>
+                <p class="temp">Temp:</p>
+                <p class="wind">Wind:</p>
+                <p class="humidity">Humidity:</p>            
+            </div>
+            <div class="col m-1 card">
+                <h4 class="date"></h4>
+                <i class="weatherFavicon"></i>
+                <p class="temp">Temp:</p>
+                <p class="wind">Wind:</p>
+                <p class="humidity">Humidity:</p>  
+            </div>
+        </div>   
+    </main>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+    <script src="./assets/javascript/script.js"></script>
+</body>
+
+</html>
