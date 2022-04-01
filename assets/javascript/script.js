@@ -30,7 +30,7 @@ var mainWeather = document.querySelector("#weatherMain")
 var weatherFavicon = document.querySelector(".weatherFavicon");
 var favEl = document.querySelector("#fav");
 var searchHistory = document.querySelector(".searchHistory");
-
+var cardEl = document.querySelector(".card");
 var currentDay = moment().format("L");
 var searchHistoryArray = [];
 var searchBtn = document.querySelector(".search");
@@ -78,10 +78,15 @@ function getWeatherAPI(apiLat, apiLon) {
         UVindexEl.style.backgroundColor = "#B567A4"; 
     };  
    // the forecat weather here 
-   var dateCardEl = data1.daily[0].dt
-    dateCard1.textContent = dateCardEl
 
-    const milli = dateEl * 1000;// 1575909015000
+//    for (var i = 0; i < cardEl.length; i++)
+
+//     var unixDate = data1.daily[i].dt;
+
+
+    var dateCardEl1 = data1.daily[1].dt
+
+    const milli = dateCardEl1 * 1000;// 1575909015000
     const dateObj = new Date(milli);
     dateCard1.textContent = dateObj.toLocaleString("en-US", {weekday: "long"});
 
@@ -89,17 +94,41 @@ function getWeatherAPI(apiLat, apiLon) {
     windCardEl.textContent = data1.daily[1].wind_speed + " Mph";
     humidity1El.textContent = data1.daily[1].humidity + "%";
 
+    var dateCardEl2 = data1.daily[2].dt
+
+    const milli2 = dateCardEl2 * 1000;// 1575909015000
+    const dateObj2 = new Date(milli2);
+    dateCard2.textContent = dateObj2.toLocaleString("en-US", {weekday: "long"});
+
     tempCardEl2.textContent = data1.daily[2].temp.max + "\xB0 High " + data1.daily[2].temp.min + "\xB0 Low";
     windCardEl2.textContent = data1.daily[2].wind_speed + " Mph";
     humidity1El2.textContent = data1.daily[2].humidity + "%";
+
+    var dateCardEl3 = data1.daily[3].dt
+
+    const milli3 = dateCardEl3 * 1000;// 1575909015000
+    const dateObj3 = new Date(milli3);
+    dateCard3.textContent = dateObj3.toLocaleString("en-US", {weekday: "long"});
 
     tempCardEl3.textContent = data1.daily[3].temp.max + "\xB0 High " + data1.daily[3].temp.min + "\xB0 Low";
     windCardEl3.textContent = data1.daily[3].wind_speed + " Mph";
     humidity1El3.textContent = data1.daily[3].humidity + "%";
 
+    var dateCardEl4 = data1.daily[4].dt
+
+    const milli4 = dateCardEl4 * 1000;// 1575909015000
+    const dateObj4 = new Date(milli4);
+    dateCard4.textContent = dateObj4.toLocaleString("en-US", {weekday: "long"});
+
     tempCardEl4.textContent = data1.daily[4].temp.max + "\xB0 High " + data1.daily[4].temp.min + "\xB0 Low";
     windCardEl4.textContent = data1.daily[4].wind_speed + " Mph";
     humidity1El4.textContent = data1.daily[4].humidity + "%";
+
+    var dateCardEl5 = data1.daily[5].dt
+
+    const milli5 = dateCardEl5 * 1000;// 1575909015000
+    const dateObj5 = new Date(milli5);
+    dateCard5.textContent = dateObj5.toLocaleString("en-US", {weekday: "long"});
 
     tempCardEl5.textContent = data1.daily[5].temp.max + "\xB0 High " + data1.daily[5].temp.min + "\xB0 Low";
     windCardEl5.textContent = data1.daily[5].wind_speed + " Mph";
