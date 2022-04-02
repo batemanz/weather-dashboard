@@ -26,8 +26,7 @@ var humidity1El4 = document.querySelector("#humidity4");
 var tempCardEl5 = document.querySelector("#tempCard5");
 var windCardEl5 = document.querySelector("#windCard5");
 var humidity1El5 = document.querySelector("#humidity5");
-var mainWeather = document.querySelector("#weatherMain")
-var weatherFavicon = document.querySelector(".weatherFavicon");
+var mainWeather = document.querySelector("#weatherMain");
 var favEl = document.querySelector("#fav");
 var searchHistory = document.querySelector(".searchHistory");
 var cardEl = document.querySelector(".card");
@@ -53,13 +52,18 @@ function getWeatherAPI(apiLat, apiLon) {
  .then(function (data1) {
     console.log("One Call Result", data1);
    // set the current weather here 
+
+    var iconCode = data1.current.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    $('#fav').attr('src', iconUrl);
+
     var dateEl = data1.current.dt;
     temp.textContent = data1.current.temp + "\xB0"; 
     humidity.textContent = data1.current.humidity + "%"; 
     wind.textContent = data1.current.wind_speed + " Mph";
     var uviEl = data1.current.uvi;
     mainWeather.textContent = data1.current.weather[0].main;
-    favEl.textContent = data1.current.weather[0].icon;
+    // favEl.textContent = data1.current.weather[0].icon;
     // shows the current day and time from the epoch currrent.dt
     UVindexEl.textContent = uviEl + " uvi";
     const milliseconds = dateEl * 1000;// 1575909015000
@@ -83,9 +87,12 @@ function getWeatherAPI(apiLat, apiLon) {
 
 //     var unixDate = data1.daily[i].dt;
 
+    
+    var iconCode1 = data1.daily[1].weather[0].icon;
+    var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1 + ".png";
+    $('#fav1').attr('src', iconUrl1);
 
     var dateCardEl1 = data1.daily[1].dt
-
     const milli = dateCardEl1 * 1000;// 1575909015000
     const dateObj = new Date(milli);
     dateCard1.textContent = dateObj.toLocaleString("en-US", {weekday: "long"});
@@ -94,8 +101,11 @@ function getWeatherAPI(apiLat, apiLon) {
     windCardEl.textContent = data1.daily[1].wind_speed + " Mph";
     humidity1El.textContent = data1.daily[1].humidity + "%";
 
-    var dateCardEl2 = data1.daily[2].dt
+    var iconCode2 = data1.daily[2].weather[0].icon;
+    var iconUrl2 = "http://openweathermap.org/img/w/" + iconCode2 + ".png";
+    $('#fav2').attr('src', iconUrl2);
 
+    var dateCardEl2 = data1.daily[2].dt
     const milli2 = dateCardEl2 * 1000;// 1575909015000
     const dateObj2 = new Date(milli2);
     dateCard2.textContent = dateObj2.toLocaleString("en-US", {weekday: "long"});
@@ -104,8 +114,11 @@ function getWeatherAPI(apiLat, apiLon) {
     windCardEl2.textContent = data1.daily[2].wind_speed + " Mph";
     humidity1El2.textContent = data1.daily[2].humidity + "%";
 
-    var dateCardEl3 = data1.daily[3].dt
+    var iconCode3 = data1.daily[3].weather[0].icon;
+    var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3 + ".png";
+    $('#fav3').attr('src', iconUrl3);
 
+    var dateCardEl3 = data1.daily[3].dt
     const milli3 = dateCardEl3 * 1000;// 1575909015000
     const dateObj3 = new Date(milli3);
     dateCard3.textContent = dateObj3.toLocaleString("en-US", {weekday: "long"});
@@ -114,8 +127,11 @@ function getWeatherAPI(apiLat, apiLon) {
     windCardEl3.textContent = data1.daily[3].wind_speed + " Mph";
     humidity1El3.textContent = data1.daily[3].humidity + "%";
 
-    var dateCardEl4 = data1.daily[4].dt
+    var iconCode4 = data1.daily[4].weather[0].icon;
+    var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4 + ".png";
+    $('#fav4').attr('src', iconUrl4);
 
+    var dateCardEl4 = data1.daily[4].dt
     const milli4 = dateCardEl4 * 1000;// 1575909015000
     const dateObj4 = new Date(milli4);
     dateCard4.textContent = dateObj4.toLocaleString("en-US", {weekday: "long"});
@@ -124,8 +140,11 @@ function getWeatherAPI(apiLat, apiLon) {
     windCardEl4.textContent = data1.daily[4].wind_speed + " Mph";
     humidity1El4.textContent = data1.daily[4].humidity + "%";
 
-    var dateCardEl5 = data1.daily[5].dt
+    var iconCode5 = data1.daily[5].weather[0].icon;
+    var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5 + ".png";
+    $('#fav5').attr('src', iconUrl5);
 
+    var dateCardEl5 = data1.daily[5].dt
     const milli5 = dateCardEl5 * 1000;// 1575909015000
     const dateObj5 = new Date(milli5);
     dateCard5.textContent = dateObj5.toLocaleString("en-US", {weekday: "long"});
