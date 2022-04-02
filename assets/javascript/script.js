@@ -203,16 +203,44 @@ searchBtn.addEventListener("click", function (event) {
 
 $(".search").on("click", function () {
     var citySearched = $(this).siblings("#cityInput").val();
-    // var stringafiedCity = JSON.stringify(citySearched)
-    localStorage.setItem("selectedCity", citySearched);
 
+    // this should be an array of cities, not just a single city
     var storedCities = localStorage.getItem("selectedCity");
 
-    var newButton = document.createElement("button").innerHTML("SANITY CHECK");
-    // console.log("this is city ", storedCities);
-    // $(".searchHistory").val(storedCities);
-    // $(".searchHistory").append(newButton);
-    var searchHistoryWrapper = document.getElementById("searchHistory");
-    searchHistoryWrapper.appendChild(newButton)
+    // if stored cities doesn't exist yet in localStorage, initialize it to an empty array
+    if (storedCities === null) {
+      // console.log("no selected cities, initializing to empty array...")
+      localStorage.setItem("selectedCity", JSON.stringify([]));
+    } else {
+      // console.log("storedCities array exists in localstorage: ", storedCities);
+
+      // since localstorage only saves strings, we need to parse it into an array:
+      var storedCitiesArray = JSON.parse(storedCities)
+
+      // now that we have an array, we can push our searched city into that array
+      storedCitiesArray.push(citySearched);
+
+      // set the new storedCities array in localStorage:
+      localStorage.setItem("selectedCity", JSON.stringify(storedCitiesArray));
+      removeButtonsFromDOM();
+      addButtonsToDOM(storedCitiesArray);
+    }
+
+    function removeButtonsFromDOM() {
+      var searchHistoryWrapper = document.getElementById("searchHistory");
+      while (searchHistoryWrapper.lastChild) {
+          searchHistoryWrapper.removeChild(searchHistoryWrapper.lastChild);
+      }
+    }
+
+    function addButtonsToDOM (cities) {
+      for (let i = 0; i < cities.length; i++) {
+        var newButton = document.createElement("button");
+        newButton.innerHTML = cities[i];
+      
+        var searchHistoryWrapper = document.getElementById("searchHistory");
+        searchHistoryWrapper.appendChild(newButton);
+      }
+    }
   });
 
