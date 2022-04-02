@@ -200,3 +200,19 @@ searchBtn.addEventListener("click", function (event) {
   event.preventDefault(); //stps the page from re-loading
   getLatLonForCity();
 });
+
+$(".search").on("click", function () {
+    var citySearched = $(this).siblings("#cityInput").val();
+    // var stringafiedCity = JSON.stringify(citySearched)
+    localStorage.setItem("selectedCity", citySearched);
+
+    var storedCities = localStorage.getItem("selectedCity");
+
+    var newButton = document.createElement("button").innerHTML("SANITY CHECK");
+    // console.log("this is city ", storedCities);
+    // $(".searchHistory").val(storedCities);
+    // $(".searchHistory").append(newButton);
+    var searchHistoryWrapper = document.getElementById("searchHistory");
+    searchHistoryWrapper.appendChild(newButton)
+  });
+
