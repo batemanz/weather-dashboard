@@ -159,7 +159,7 @@ function getLatLonForCity() {
   //console.log(searchText);
 
   var geocodingAPI =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     searchText +
     "&limit=1&appid=" +
     APIkey;
@@ -193,8 +193,7 @@ searchBtn.addEventListener("click", function (event) {
   getLatLonForCity();
 });
 
-// $(".search").on("click",
-document.getElementById('search').onclick = function () {
+$(".search").on("click", function () {
     var citySearched = $(this).siblings("#cityInput").val();
 
     // this should be an array of cities, not just a single city
