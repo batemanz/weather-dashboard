@@ -34,15 +34,14 @@ var currentDay = moment().format("L");
 var searchHistoryArray = [];
 var searchBtn = document.querySelector(".search");
 
-// date.textContent = "3/30/22";
+
 
 function getWeatherAPI(apiLat, apiLon) {
-  //console.log("Inside weather api",  apiLat, apiLon);
 
   var oneCallAPI =
   "https://api.openweathermap.org/data/2.5/onecall?lat=" + apiLat + "&lon=" + apiLon + "&exclude=minutely,hourly,alerts&appid=" + APIkey + "&units=imperial";
 
-  //console.log(oneCallAPI); 
+  
 
  //fetch request 
  fetch(oneCallAPI)
@@ -63,7 +62,7 @@ function getWeatherAPI(apiLat, apiLon) {
     wind.textContent = data1.current.wind_speed + " Mph";
     var uviEl = data1.current.uvi;
     mainWeather.textContent = data1.current.weather[0].main;
-    // favEl.textContent = data1.current.weather[0].icon;
+    
     // shows the current day and time from the epoch currrent.dt
     UVindexEl.textContent = uviEl + " uvi";
     const milliseconds = dateEl * 1000;// 1575909015000
@@ -81,11 +80,6 @@ function getWeatherAPI(apiLat, apiLon) {
     } else {
         UVindexEl.style.backgroundColor = "#B567A4"; 
     };  
-   // the forecat weather here 
-
-//    for (var i = 0; i < cardEl.length; i++)
-
-//     var unixDate = data1.daily[i].dt;
 
     
     var iconCode1 = data1.daily[1].weather[0].icon;
