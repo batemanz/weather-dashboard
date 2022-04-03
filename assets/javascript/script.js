@@ -193,7 +193,8 @@ searchBtn.addEventListener("click", function (event) {
   getLatLonForCity();
 });
 
-$(".search").on("click", function () {
+// $(".search").on("click",
+document.getElementById('search').onclick = function () {
     var citySearched = $(this).siblings("#cityInput").val();
 
     // this should be an array of cities, not just a single city
