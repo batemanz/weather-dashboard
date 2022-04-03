@@ -49,7 +49,7 @@ function getWeatherAPI(apiLat, apiLon) {
     console.log("One Call Result", data1);
    // sets the current weather
     var iconCode = data1.current.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
     $('#fav').attr('src', iconUrl);
 
     var dateEl = data1.current.dt;
@@ -81,7 +81,7 @@ function getWeatherAPI(apiLat, apiLon) {
     // staticly sets the parameters of the forecast cards
     // gets and sets icon
     var iconCode1 = data1.daily[1].weather[0].icon;
-    var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1 + ".png";
+    var iconUrl1 = "https://openweathermap.org/img/w/" + iconCode1 + ".png";
     $('#fav1').attr('src', iconUrl1);
     // gets and sets current day
     var dateCardEl1 = data1.daily[1].dt
@@ -94,7 +94,7 @@ function getWeatherAPI(apiLat, apiLon) {
     humidity1El.textContent = data1.daily[1].humidity + "%";
 
     var iconCode2 = data1.daily[2].weather[0].icon;
-    var iconUrl2 = "http://openweathermap.org/img/w/" + iconCode2 + ".png";
+    var iconUrl2 = "https://openweathermap.org/img/w/" + iconCode2 + ".png";
     $('#fav2').attr('src', iconUrl2);
 
     var dateCardEl2 = data1.daily[2].dt
@@ -107,7 +107,7 @@ function getWeatherAPI(apiLat, apiLon) {
     humidity1El2.textContent = data1.daily[2].humidity + "%";
 
     var iconCode3 = data1.daily[3].weather[0].icon;
-    var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3 + ".png";
+    var iconUrl3 = "https://openweathermap.org/img/w/" + iconCode3 + ".png";
     $('#fav3').attr('src', iconUrl3);
 
     var dateCardEl3 = data1.daily[3].dt
@@ -120,7 +120,7 @@ function getWeatherAPI(apiLat, apiLon) {
     humidity1El3.textContent = data1.daily[3].humidity + "%";
 
     var iconCode4 = data1.daily[4].weather[0].icon;
-    var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4 + ".png";
+    var iconUrl4 = "https://openweathermap.org/img/w/" + iconCode4 + ".png";
     $('#fav4').attr('src', iconUrl4);
 
     var dateCardEl4 = data1.daily[4].dt
@@ -133,7 +133,7 @@ function getWeatherAPI(apiLat, apiLon) {
     humidity1El4.textContent = data1.daily[4].humidity + "%";
 
     var iconCode5 = data1.daily[5].weather[0].icon;
-    var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5 + ".png";
+    var iconUrl5 = "https://openweathermap.org/img/w/" + iconCode5 + ".png";
     $('#fav5').attr('src', iconUrl5);
 
     var dateCardEl5 = data1.daily[5].dt
