@@ -13,9 +13,9 @@ select another city
 
 ## links
 
-[github-Repository]("https://github.com/batemanz/weather-dashboard.git")
+[github-Repository](https://github.com/batemanz/weather-dashboard.git)
 
-[Deployed-Web-App]("https://batemanz.github.io/weather-dashboard/")
+[Deployed-Web-App](https://batemanz.github.io/weather-dashboard/)
 
 ## screenshots
 
