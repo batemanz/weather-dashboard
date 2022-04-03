@@ -31,17 +31,14 @@ var favEl = document.querySelector("#fav");
 var searchHistory = document.querySelector(".searchHistory");
 var cardEl = document.querySelector(".card");
 var currentDay = moment().format("L");
-var searchHistoryArray = [];
 var searchBtn = document.querySelector(".search");
 
 
 
 function getWeatherAPI(apiLat, apiLon) {
-
+// api key stored in variable
   var oneCallAPI =
   "https://api.openweathermap.org/data/2.5/onecall?lat=" + apiLat + "&lon=" + apiLon + "&exclude=minutely,hourly,alerts&appid=" + APIkey + "&units=imperial";
-
-  
 
  //fetch request 
  fetch(oneCallAPI)
@@ -50,8 +47,7 @@ function getWeatherAPI(apiLat, apiLon) {
  })
  .then(function (data1) {
     console.log("One Call Result", data1);
-   // set the current weather here 
-
+   // sets the current weather
     var iconCode = data1.current.weather[0].icon;
     var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
     $('#fav').attr('src', iconUrl);
@@ -69,6 +65,7 @@ function getWeatherAPI(apiLat, apiLon) {
     const dateObject = new Date(milliseconds);
     date.textContent = dateObject.toLocaleString("en-US", {timeZoneName: "short"});
 
+    // sets the background of uv index
     if (uviEl >= 0 && uviEl < 3) {
         UVindexEl.style.backgroundColor = "#3EA72D";
     } else if (uviEl >= 3 && uviEl < 6) {
@@ -81,16 +78,17 @@ function getWeatherAPI(apiLat, apiLon) {
         UVindexEl.style.backgroundColor = "#B567A4"; 
     };  
 
-    
+    // staticly sets the parameters of the forecast cards
+    // gets and sets icon
     var iconCode1 = data1.daily[1].weather[0].icon;
     var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1 + ".png";
     $('#fav1').attr('src', iconUrl1);
-
+    // gets and sets current day
     var dateCardEl1 = data1.daily[1].dt
     const milli = dateCardEl1 * 1000;// 1575909015000
     const dateObj = new Date(milli);
     dateCard1.textContent = dateObj.toLocaleString("en-US", {weekday: "long"});
-
+    // sets current day weather descriptions
     tempCardEl.textContent = data1.daily[1].temp.max + "\xB0 High " + data1.daily[1].temp.min + "\xB0 Low";
     windCardEl.textContent = data1.daily[1].wind_speed + " Mph";
     humidity1El.textContent = data1.daily[1].humidity + "%";
@@ -203,10 +201,8 @@ $(".search").on("click", function () {
 
     // if stored cities doesn't exist yet in localStorage, initialize it to an empty array
     if (storedCities === null) {
-      // console.log("no selected cities, initializing to empty array...")
       localStorage.setItem("selectedCity", JSON.stringify([]));
     } else {
-      // console.log("storedCities array exists in localstorage: ", storedCities);
 
       // since localstorage only saves strings, we need to parse it into an array:
       var storedCitiesArray = JSON.parse(storedCities)
